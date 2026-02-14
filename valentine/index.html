@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💜 Will You Be My Valentine? 💜</title>
+    <meta name="description" content="A very special Valentine's Day surprise, made with love.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Cursor Hearts Trail Canvas -->
+    <canvas id="cursor-canvas"></canvas>
+
+    <!-- Floating Background Hearts -->
+    <div id="bg-hearts" aria-hidden="true"></div>
+
+    <!-- Flowing Ribbons -->
+    <div class="ribbons-container" aria-hidden="true">
+        <div class="ribbon ribbon-1"></div>
+        <div class="ribbon ribbon-2"></div>
+        <div class="ribbon ribbon-3"></div>
+        <div class="ribbon ribbon-4"></div>
+        <div class="ribbon ribbon-5"></div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- SECTION 1: WILL YOU BE MY VALENTINE? -->
+    <!-- ============================================= -->
+    <section id="hero" class="section hero-section">
+        <div class="hero-content">
+            <div class="hero-sparkle-ring" aria-hidden="true">
+                <span class="sparkle s1">✦</span>
+                <span class="sparkle s2">✧</span>
+                <span class="sparkle s3">✦</span>
+                <span class="sparkle s4">✧</span>
+                <span class="sparkle s5">✦</span>
+                <span class="sparkle s6">✧</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="hero-line-1">Hey Beautiful</span>
+                <span class="hero-heart-divider">💜</span>
+                <span class="hero-line-2">Will You Be My Valentine?</span>
+            </h1>
+            <p class="hero-subtitle">I have a very important question for you...</p>
+            <div class="hero-buttons">
+                <button id="yes-btn" class="btn btn-yes" onclick="handleYes()">Yes! 💜</button>
+                <button id="no-btn" class="btn btn-no" onmouseover="dodgeNoButton()"
+                    onclick="dodgeNoButton()">No</button>
+            </div>
+            <div id="yes-response" class="yes-response hidden">
+                <h2 class="yes-text">I KNEW IT! <span class="emoji-fix">🥰💜</span></h2>
+                <p class="yes-subtext">You just made me the happiest person alive!</p>
+                <div class="scroll-hint" id="scroll-hint">
+                    <span>Scroll down for your surprise</span>
+                    <div class="scroll-arrow">↓</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bg-art" aria-hidden="true">
+            <div class="floating-heart fh1">💜</div>
+            <div class="floating-heart fh2">💜</div>
+            <div class="floating-heart fh3">🤍</div>
+            <div class="floating-heart fh4">💜</div>
+            <div class="floating-heart fh5">🤍</div>
+            <div class="floating-heart fh6">💜</div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION 2: OUR LOVE COUNTER -->
+    <!-- ============================================= -->
+    <section id="counter" class="section counter-section">
+        <div class="section-inner">
+            <h2 class="section-title reveal-item">Every Second With You Counts</h2>
+            <p class="section-subtitle reveal-item">And I'd do it all over again 💜</p>
+            <div class="counter-grid reveal-item">
+                <div class="counter-card">
+                    <span class="counter-number" id="counter-days">0</span>
+                    <span class="counter-label">Days</span>
+                </div>
+                <div class="counter-card">
+                    <span class="counter-number" id="counter-hours">0</span>
+                    <span class="counter-label">Hours</span>
+                </div>
+                <div class="counter-card">
+                    <span class="counter-number" id="counter-minutes">0</span>
+                    <span class="counter-label">Minutes</span>
+                </div>
+                <div class="counter-card">
+                    <span class="counter-number" id="counter-seconds">0</span>
+                    <span class="counter-label">Seconds</span>
+                </div>
+            </div>
+            <p class="counter-footer reveal-item">...of loving you 💜</p>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION 3: REASONS I LOVE YOU -->
+    <!-- ============================================= -->
+    <section id="reasons" class="section reasons-section">
+        <div class="section-inner">
+            <h2 class="section-title reveal-item">Reasons I Love You</h2>
+            <p class="section-subtitle reveal-item">Honestly, the list is infinite... but here are a few</p>
+            <div class="reasons-mosaic">
+                <div class="reason-bubble rb-large reveal-pop" data-delay="0">
+                    <span class="reason-num">01</span>
+                    <h3>Your beautiful black eyes</h3>
+                    <p>They dont just look at me, they see me... one glance and my whole brain forgets how to function...I always get lost in them...</p>
+                </div>
+                <div class="reason-bubble rb-small reveal-pop" data-delay="120">
+                    <span class="reason-num">02</span>
+                    <h3>Your silly jokes</h3>
+                    <p>Your jokes are so random and sometimes terrible... but I love them...</p>
+                </div>
+                <div class="reason-bubble rb-medium reveal-pop" data-delay="240">
+                    <span class="reason-num">03</span>
+                    <h3>Every conversation weve had</h3>
+                    <p>I love talking to you... deep talks, dumb talks, late talks, everything with you just feels right...
+                    </p>
+                </div>
+                <div class="reason-bubble rb-small reveal-pop" data-delay="360">
+                    <span class="reason-num">04</span>
+                    <h3>Your pretty smile</h3>
+                    <p>Your smile does something to me... its magical, its warm, and Id do anything just to see it more...</p>
+                </div>
+                <div class="reason-bubble rb-medium reveal-pop" data-delay="480">
+                    <span class="reason-num">05</span>
+                    <h3>The way you motivate me</h3>
+                    <p>You make me want to be better... not because I have to... but because I want to deserve you</p>
+                </div>
+                <div class="reason-bubble rb-medium reveal-pop" data-delay="600">
+                    <span class="reason-num">06</span>
+                    <h3>Your beatboxing</h3>
+                    <p>The fact you can randomly start beatboxing is still crazy to me...Its cute...its impressive...and its so you</p>
+                </div>
+                <div class="reason-bubble rb-large reveal-pop" data-delay="720">
+                    <span class="reason-num">07</span>
+                    <h3>Your presence</h3>
+                    <p>Even when were just sitting there silently... it feels safe and calm... like Im exactly where Im supposed to be...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION 4: OUR MEMORIES (PHOTO GALLERY) -->
+    <!-- ============================================= -->
+    <section id="gallery" class="section gallery-section">
+        <div class="section-inner">
+            <h2 class="section-title reveal-item">Our Memories Together</h2>
+            <p class="section-subtitle reveal-item">Every moment with you is a treasure 💜</p>
+            <div class="gallery-grid">
+                <div class="polaroid gallery-reveal" data-direction="left" data-tilt>
+                    <div class="polaroid-img-wrapper">
+                        <img src="pics/casca.jpg" alt="Us together">
+                    </div>
+                    <p class="polaroid-caption">My casca 💜</p>
+                </div>
+                <div class="polaroid gallery-reveal" data-direction="up" data-tilt>
+                    <div class="polaroid-img-wrapper">
+                        <img src="pics/cutiepie.png" alt="Cutie pie">
+                    </div>
+                    <p class="polaroid-caption">My cutie pie 💜</p>
+                </div>
+                <div class="polaroid gallery-reveal" data-direction="right" data-tilt>
+                    <div class="polaroid-img-wrapper">
+                        <img src="pics/gorgoues.png" alt="Gorgeous">
+                    </div>
+                    <p class="polaroid-caption">Absolutely gorgeous 💜</p>
+                </div>
+                <div class="polaroid gallery-reveal" data-direction="right" data-tilt>
+                    <div class="polaroid-img-wrapper">
+                        <img src="pics/hottie.png" alt="My hottie">
+                    </div>
+                    <p class="polaroid-caption">My favorite person 💜</p>
+                </div>
+                <div class="polaroid gallery-reveal" data-direction="up" data-tilt>
+                    <div class="polaroid-img-wrapper">
+                        <img src="pics/mybaby.jpg" alt="My baby">
+                    </div>
+                    <p class="polaroid-caption">My babbyyy 💜</p>
+                </div>
+                <div class="polaroid gallery-reveal" data-direction="left" data-tilt>
+                    <div class="polaroid-img-wrapper">
+                        <img src="pics/silly.png" alt="Being silly">
+                    </div>
+                    <p class="polaroid-caption">My silly gurl 💜</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION 5: LOVE LETTER -->
+    <!-- ============================================= -->
+    <section id="letter" class="section letter-section">
+        <div class="section-inner">
+            <h2 class="section-title reveal-item">A Letter For You</h2>
+            <div class="letter-container reveal-item">
+                <div class="letter-paper">
+                    <div class="letter-seal">💜</div>
+                    <p class="letter-date">February 14, 2026</p>
+                    <p class="letter-greeting">My Dearest Love,</p>
+                    <div class="letter-body" id="letter-body">
+                        <p>If I had to choose between breathing and loving you, Id use my last breath to say "I love
+                            you" Ummmm... that sounds dramatic, but thats how you make me feel.</p>
+                        <p>Every single day with you feels like a gift I didnt deserve but somehow got lucky enough to
+                            receive. You make the ordinary extraordinary, the boring hilarious, and the hard times
+                            bearable.</p>
+                        <p>Youre not just my Valentine, youre my best friend, my favorite human, my biggest flex, and
+                            the reason I smile at my phone like an idiot.</p>
+                        <p>I promise to always be your shoulder to lean on, your partner in crime, your biggest
+                            supporter, and the person who steals your fries but makes up for it with unlimited love.</p>
+                        <p>Thank you for choosing me. Thank you for being you. Thank you for every laugh,
+                            every latenight conversation, and every moment weve shared.</p>
+                        <p>Heres to us, to forever, and to all the adventures still waiting for us.</p>
+                    </div>
+                    <p class="letter-closing">With all my love,</p>
+                    <p class="letter-signature">Your Valentine 💜</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!-- SECTION 6: FINAL MESSAGE -->
+    <!-- ============================================= -->
+    <section id="finale" class="section finale-section">
+        <div class="section-inner">
+            <div class="finale-content reveal-item">
+                <div class="finale-hearts" aria-hidden="true">
+                    <span>💜</span><span>🤍</span><span>💜</span><span>🤍</span><span>💜</span>
+                </div>
+                <h2 class="finale-title">I Love You</h2>
+                <p class="finale-subtitle">Today, tomorrow, and every day after that.</p>
+                <p class="finale-text">You are the most amazing person I've ever met, and I'm so grateful the universe
+                    brought us together. Happy Valentine's Day, my love.</p>
+                <button class="btn btn-finale" onclick="triggerFinale()">💜 Send Love 💜</button>
+                <div class="finale-message hidden" id="finale-message">
+                    <p class="finale-reveal-text">You are my forever Valentine. I love you more than words could ever
+                        say. 💜</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Made with 💜 just for you</p>
+        <p class="footer-small">Happy Valentine's Day</p>
+    </footer>
+
+    <!-- Confetti Canvas -->
+    <canvas id="confetti-canvas"></canvas>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
